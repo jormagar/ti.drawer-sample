@@ -1,0 +1,45 @@
+{
+  "_from": "git+https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git",
+  "_id": "es.upv.asic.bottomNavigation@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/es.upv.asic.bottomNavigation",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git",
+    "rawSpec": "git+https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git",
+    "saveSpec": "git+https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git",
+    "fetchSpec": "https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "git+https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git#56961ddce986849afda92be3f44991e757b30f62",
+  "_spec": "git+https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git",
+  "_where": "/Users/jormagar/Apps/MiUpv/app",
+  "author": {
+    "name": "Jorge Macías García"
+  },
+  "bugs": {
+    "url": "https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "La finalidad de este widget es el uso de una navegación inferior multiplataforma de apariencia nativa ya que Titanium no incorpora el componente Bottom Navigation para Android y en iOS se utilizan tabs.",
+  "keywords": [
+    "bottom navigation"
+  ],
+  "license": "MIT",
+  "main": "widget.js",
+  "name": "es.upv.asic.bottomNavigation",
+  "repository": {
+    "type": "git",
+    "url": "https://git.upv.es/appsupv/widgets/es.upv.asic.bottomNavigation.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

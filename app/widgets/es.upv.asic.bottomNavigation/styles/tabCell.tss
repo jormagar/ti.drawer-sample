@@ -1,0 +1,20 @@
+"#border" : {
+  top: 0,
+  width: Ti.UI.FILL,
+  height: 1
+},
+"#container" : {
+  top: 7,
+  bottom: 5,
+  layout: "vertical"
+},
+"#icon" : {
+  width: Ti.UI.FILL,
+  height: Ti.UI.SIZE,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+},
+"#label" : {
+  width: Ti.UI.FILL,
+  height: Ti.UI.SIZE,
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}

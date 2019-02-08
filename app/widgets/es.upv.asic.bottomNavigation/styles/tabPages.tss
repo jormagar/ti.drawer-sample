@@ -1,0 +1,6 @@
+"ScrollableView" : {
+  cacheSize: 5,
+  bubbleParent: false,
+  disableBounce: true,
+  scrollingEnabled: false
+}

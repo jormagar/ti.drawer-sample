@@ -1,0 +1,9 @@
+<Alloy>
+	<View id="cell">
+		<View id="border"/>
+		<View id="container">
+			<Label id="icon"/>
+			<Label id="label"/>
+		</View>
+	</View>
+</Alloy>

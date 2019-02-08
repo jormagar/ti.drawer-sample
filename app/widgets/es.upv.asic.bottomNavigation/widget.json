@@ -1,0 +1,13 @@
+{
+    "id": "es.upv.asic.bottomNavigation",
+    "name": "es.upv.asic.bottomNavigation",
+    "description": "Tabs en barra de navegación inferior",
+    "author": "Jorge Macías García",
+    "version": "1.0.0",
+    "copyright": "Copyright (c) 2017",
+    "license": "Public Domain",
+    "min-alloy-version": "1.0",
+    "min-titanium-version": "2.1",
+    "tags": "",
+    "platforms": "android,ios"
+}

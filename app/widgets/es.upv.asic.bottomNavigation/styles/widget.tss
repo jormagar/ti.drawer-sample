@@ -1,0 +1,27 @@
+"#tabs" : {
+  opacity: 0
+},
+"#bar" : {
+  layout: "vertical",
+  width: Ti.UI.FILL,
+  height: Ti.UI.SIZE,
+  bottom: 0
+},
+"#tabControlContainer" : {
+  bubbleParent: false,
+  width: Ti.UI.FILL,
+  height: 56,
+  layout: "horizontal",
+  horizontalWrap: false,
+  scrollType: "horizontal",
+  disableBounce: true
+},
+"#iPhoneX" : {
+  width: Ti.UI.FILL,
+  height: Ti.UI.SIZE
+},
+"#tabPagesContainer" : {
+  width: Ti.UI.FILL,
+  top: 0,
+  bottom: 56
+}

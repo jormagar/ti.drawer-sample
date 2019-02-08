@@ -1,0 +1,9 @@
+<Alloy>
+	<View id="tabs">
+		<View id="tabPagesContainer"/>
+		<View id="bar">
+			<ScrollView id="tabControlContainer"/>
+			<View id="iPhoneX" platform="ios"/>
+		</View>
+	</View>
+</Alloy>
