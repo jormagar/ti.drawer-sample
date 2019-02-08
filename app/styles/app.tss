@@ -1,0 +1,125 @@
+/**
+*  App Stylesheet
+*  @description Hoja de estilos común a toda la aplicación
+*/
+/**
+* 	Common UI Element Styles
+*/
+"Window" : {
+  title: L("app_title", "MiUPV"),
+  backgroundColor: Alloy.CFG.Color.white,
+  orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
+},
+"NavigationWindow[platform=ios]" : {
+  backgroundColor: Alloy.CFG.Color.white
+},
+"Window" : {
+  title: L("app_title"),
+  backgroundColor: Alloy.CFG.Color.white
+},
+"Window[platform=ios]" : {
+  titleAttributes: {
+    font: {
+      fontSize: Alloy.CFG.Text.Sizes.h7,
+      fontWeight: "bold"
+    },
+    color: Alloy.CFG.Color.black
+  },
+  navTintColor: Alloy.CFG.Color.black,
+  translucent: false,
+  statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT
+},
+"Window[platform=android]" : {
+  windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_PAN
+},
+"MenuItem[platform=android]" : {
+  showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM
+},
+/**
+ * ListView default style
+ */
+"ListView[platform=android]" : {
+  separatorHeight: 1,
+  separatorColor: 'transparent'
+},
+"ListView[platform=ios]" : {
+  disableBounce: true,
+  separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE
+},
+"ListItem[platform=ios]" : {
+  selectionStyle: Ti.UI.iOS.ListViewCellSelectionStyle.NONE
+},
+"ItemTemplate[platform=ios]" : {
+  selectionStyle: Ti.UI.iOS.ListViewCellSelectionStyle.NONE
+},
+/**
+* 	Orientation Modes
+*  http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.Window-property-orientationModes
+*/
+".orientation" : {
+	orientationModes: [Titanium.UI.PORTRAIT, Titanium.UI.UPSIDE_PORTRAIT]
+},
+/**
+* 	Layout Styles
+*/
+".vlayout" : {
+  layout: "vertical"
+},
+".hlayout" : {
+  layout: "horizontal"
+},
+/**
+ * Size Styles
+ */
+".fill-size" : {
+  width: Titanium.UI.FILL,
+  height: Titanium.UI.SIZE
+},
+".size-size" : {
+  width: Titanium.UI.SIZE,
+  height: Titanium.UI.SIZE
+},
+".fill-width" : {
+  width: Titanium.UI.FILL
+},
+".fill-height" : {
+  height: Titanium.UI.FILL
+},
+".size-width" : {
+  width: Titanium.UI.SIZE
+},
+".size-height" : {
+  height: Titanium.UI.SIZE
+},
+/**
+ * Icon Styles
+ */
+".material-icon" : {
+  font: {
+    fontFamily: Alloy.CFG.Text.Font.Icons.MaterialIcons,
+    fontSize: Alloy.CFG.Text.Sizes.icon
+  }
+},
+/**
+ * Font style
+ */
+".font-light[platform=ios]": {
+  font: {
+    fontFamily: Alloy.CFG.Text.Font.SanFrancisco.Light
+  }
+},
+".font-light[platform=android]": {
+  font: {
+    fontFamily: Alloy.CFG.Text.Font.Roboto.Light
+  }
+},
+".font-medium[platform=ios]": {
+  font: {
+    fontFamily: Alloy.CFG.Text.Font.SanFrancisco.Medium
+  }
+},
+".font-medium[platform=android]": {
+  font: {
+    fontFamily: Alloy.CFG.Text.Font.Roboto.Light
+  }
+}

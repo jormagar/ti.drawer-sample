@@ -1,0 +1,10 @@
+<Alloy>
+	<NavigationWindow id="nav" platform="ios">
+		<Window id="win" class="container">
+			<LeftNavButton>
+				<Label id="menu" class="material-icon" />
+			</LeftNavButton>
+		</Window>
+	</NavigationWindow>
+	<Window id="win" class="container" platform="android"/>
+</Alloy>

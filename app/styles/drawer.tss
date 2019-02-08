@@ -1,0 +1,43 @@
+"Window" : {
+  backgroundColor: "transparent",
+  orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
+},
+"Window[platform=ios]" : {
+  statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT
+},
+"ListView" : {},
+"ListView[platform=android]" : {
+  top: -2,
+  separatorHeight: 1,
+  separatorColor: 'transparent'
+},
+"ListView[platform=ios]" : {
+  disableBounce: true,
+  separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE
+},
+"ListItem[platform=ios]" : {
+  selectionStyle: Titanium.UI.iOS.ListViewCellSelectionStyle.NONE
+},
+"#background" : {
+  backgroundColor: Alloy.CFG.Color.black_transparent,
+  opacity: 0
+},
+"#menu" : {
+  left: Alloy.Globals.UI.Design.DRAWER_WIDTH_NEGATIVE,
+  width: Alloy.Globals.UI.Design.DRAWER_WIDTH,
+  backgroundColor: Alloy.CFG.Color.white,
+  zIndex: 1,
+  layout: 'vertical'
+},
+".header" : {
+  width: Ti.UI.FILL,
+  height: Alloy.Globals.UI.Design.DRAWER_HEADER_HEIGHT
+},
+".header-bg" : {
+  contentMode: Alloy.Globals.CONTENT_MODE_FILL
+},
+".divider": {
+  width: Ti.UI.FILL,
+  height: 1,
+  backgroundColor: Alloy.CFG.Color.white_dark
+}

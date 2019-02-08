@@ -1,0 +1,18 @@
+".row" : {
+  width: Ti.UI.FILL,
+  height: 48,
+  backgroundColor: Alloy.CFG.Color.white
+},
+".icon" : {
+  left: 16,
+  color: Alloy.CFG.Color.text.secondary
+},
+".title" : {
+  left: 72,
+  right: 16,
+  font: {
+    fontSize: Alloy.CFG.Text.Sizes.body
+  },
+  minimumFontSize: Alloy.CFG.Text.Sizes.caption,
+  color: Alloy.CFG.Color.text.secondary
+}

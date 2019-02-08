@@ -1,0 +1,8 @@
+<resources>
+    <string name="drawer_home">Inicio</string>
+    <string name="drawer_books">Libros</string>
+    <string name="drawer_electronics">Electrónica</string>
+    <string name="drawer_music">Música</string>
+    <string name="drawer_settings">Ajustes</string>
+    <string name="drawer_contact">Ayuda y sugerencias</string>
+</resources>

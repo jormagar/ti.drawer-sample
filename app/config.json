@@ -1,0 +1,140 @@
+{
+	"global": {
+		"Drawer": {
+			"name": "Drawer",
+			"path": "drawer",
+			"Header": {
+				"root": "/images/menu-header/",
+				"morning": [
+					"morning-01.jpg",
+					"morning-02.jpg",
+					"morning-03.jpg"
+				],
+				"afternoon": [
+					"afternoon-01.jpg",
+					"afternoon-02.jpg",
+					"afternoon-03.jpg"
+				],
+				"night": [
+					"night-01.jpg",
+					"night-02.jpg",
+					"night-03.jpg"
+				]
+			},
+			"Items": {
+				"Home": {
+					"id": 500,
+					"name": "Home",
+					"label": "drawer_home",
+					"path": "sample",
+					"category": "main",
+					"icon": "e88a"
+				},
+				"Books": {
+					"id": 501,
+					"name": "Books",
+					"label": "drawer_books",
+					"path": "sample",
+					"category": "main",
+					"icon": "e865"
+				},
+				"Electronics": {
+					"id": 502,
+					"name": "Electronics",
+					"label": "drawer_electronics",
+					"path": "sample",
+					"category": "main",
+					"icon": "e1b1"
+				},
+				"Music": {
+					"id": 503,
+					"name": "Music",
+					"label": "drawer_music",
+					"path": "sample",
+					"category": "main",
+					"icon": "e019"
+				},
+				"Settings": {
+					"id": 505,
+					"name": "Settings",
+					"label": "drawer_settings",
+					"path": "openable",
+					"category": "openable",
+					"icon": "e8b8"
+				},
+				"Contact": {
+					"id": 506,
+					"name": "Contact",
+					"label": "drawer_contact",
+					"path": "openable",
+					"category": "openable",
+					"icon": "e887"
+				}
+			}
+		},
+		"Color": {
+			"primary": "#03a9f4",
+			"primary_dark": "#007ac1",
+			"primary_light": "#67daff",
+			"accent": "#82FFAD",
+			"accent_dark": "#52ff83",
+			"accent_light": "#daffe6",
+			"white": "#FFFFFF",
+			"white_mask": "#EEFFFFFF",
+			"white_dark": "#F2F2F2",
+			"white_dark_mask": "#88F2F2F2",
+			"black": "#222f3e",
+			"black_dark": "#17202b",
+			"black_mask": "#EE222f3e",
+			"black_transparent": "#BB17202b",
+			"gray": "#8395a7",
+			"gray_dark": "#576574",
+			"gray_light": "#c8d6e5",
+			"red": "#ee5253",
+			"green": "#1dd1a1",
+			"text": {
+				"primary": "#DE000000",
+				"secondary": "#8A000000"
+			}
+		},
+		"Text": {
+			"Font": {
+				"Icons": {
+					"MaterialIcons": "MaterialIcons-Regular",
+					"Icomoon": "Icomoon-Ultimate"
+				},
+				"Roboto": {
+					"Light": "Roboto-Light",
+					"Medium": "Roboto-Medium"
+				},
+				"SanFrancisco": {
+					"Light": "SFProDisplay-Light",
+					"Medium": "SFProDisplay-Medium"
+				}
+			},
+			"Sizes": {
+				"h1": 96,
+				"h2": 60,
+				"h3": 48,
+				"h4": 34,
+				"h5": 24,
+				"h6": 20,
+				"h7": 18,
+				"subtitle1": 16,
+				"subtitle2": 14,
+				"body": 16,
+				"button": 14,
+				"caption": 12,
+				"overline": 10,
+				"icon": 24
+			}
+		}
+	},
+	"env:development": {},
+	"env:test": {},
+	"env:production": {},
+	"os:android": {},
+	"os:ios": {},
+	"os:windows": {},
+	"dependencies": {}
+}

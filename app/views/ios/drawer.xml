@@ -1,0 +1,24 @@
+<Alloy>
+	<Window id="win">
+		<View id="background"/>
+		<View id="menu">
+			<View class="header">
+				<ImageView id="header" ns="AvImageview" class="header-bg"/>
+			</View>
+			<ListView id="list" defaultItemTemplate="menu" layout="vertical">
+				<Templates>
+					<Require src="templates/menu"/>
+				</Templates>
+				<ListSection dataCollection="menu" dataTransform="$.dataTransform" dataFilter="$.dataFilterMenu">
+					<ListItem itemId="{id}" name="{name}" row:backgroundColor="{rowColor}" icon:text="{icon}" icon:color="{iconColor}" title:text="{name}" title:color="{titleColor}" />
+				</ListSection>
+				<ListSection dataCollection="menu" dataTransform="$.dataTransform" dataFilter="$.dataFilterOpenable">
+					<HeaderView>
+						<View class="divider" />
+					</HeaderView>
+					<ListItem itemId="{id}" key="{name}" row:backgroundColor="{rowColor}" icon:text="{icon}" icon:color="{iconColor}" title:text="{name}" title:color="{titleColor}" />
+				</ListSection>
+			</ListView>
+		</View>
+	</Window>
+</Alloy>

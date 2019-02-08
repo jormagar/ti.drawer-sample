@@ -1,0 +1,8 @@
+<Alloy>
+    <ItemTemplate name="menu">
+        <View bindId="row" class="row">
+            <Label bindId="icon" class="material-icon icon" />
+            <Label bindId="title" class="title" />
+        </View>
+    </ItemTemplate>
+</Alloy>

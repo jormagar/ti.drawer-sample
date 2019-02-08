@@ -1,0 +1,14 @@
+"Window":{
+  orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT],
+  backgroundColor: Alloy.CFG.Color.white,
+},
+"Window[platform=android]" : {
+  theme: "Theme.Material.NoTitleBar.Drawer",
+  exitOnClose: true,
+  windowFlags: Ti.UI.Android.FLAG_TRANSLUCENT_STATUS,
+  extendSafeArea: true
+},
+"#menu" : {
+  text: "\ue5d2",
+  color: Alloy.CFG.Color.black
+},
