@@ -1,0 +1,5 @@
+<Alloy>
+	<View class="container">
+		<Widget id="bottomNavigation" src="es.upv.asic.bottomNavigation" />
+	</View>
+</Alloy>

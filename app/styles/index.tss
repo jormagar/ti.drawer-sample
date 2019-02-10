@@ -1,6 +1,7 @@
 "Window":{
   orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT],
   backgroundColor: Alloy.CFG.Color.white,
+  title: L("appname")
 },
 "Window[platform=android]" : {
   theme: "Theme.Material.NoTitleBar.Drawer",

@@ -3,7 +3,10 @@ exports.definition = {
     columns: {
       id: 'Number',
       name: 'String',
-      icon: 'String'
+      label: 'String',
+      path: 'String',
+      icon: 'String',
+      category: 'String'
     },
     default: {},
     adapter: {

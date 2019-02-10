@@ -26,59 +26,53 @@
           "id": 500,
           "name": "Home",
           "label": "drawer_home",
-          "path": "sample",
-          "category": "main",
+          "path": "navigation",
           "icon": "e88a",
+          "category": "main",
           "on": {
             "scrollTab": "onScrollTab"
           },
           "args": {
             "controllers": [
               {
-                "name": "Calendar",
-                "label": "tab_calendar",
+                "name": "Home",
+                "label": "tab_home",
                 "path": "sample",
-                "icon": "e8df",
+                "icon": "e88a",
                 "actions": [
                   {
                     "icon": "/images/baseline_filter_list_black_24.png",
-                    "action": "calendar:action:filter"
+                    "name": "calendar:action:filter"
                   },
                   {
                     "icon": "/images/baseline_date_range_black_24.png",
-                    "action": "calendar:action:selectday"
+                    "name": "calendar:action:selectday"
                   }
                 ]
               }, {
-                "name": "Appointment",
-                "label": "tab_appointment",
+                "name": "Search",
+                "label": "tab_search",
                 "path": "sample",
-                "icon": "e192",
+                "icon": "e8b6",
                 "actions": [
                   {
-                    "icon": "/images/baseline_filter_list_black_24.png",
-                    "action": "calendar:action:filter"
-                  },
-                  {
-                    "icon": "/images/baseline_date_range_black_24.png",
-                    "action": "calendar:action:selectday"
+                    "icon": "/images/baseline_search_black_24.png",
+                    "name": "search:action:search",
+                    "type": "search"
                   }
                 ]
               }, {
-                "name": "Appointment",
-                "label": "tab_appointment",
+                "name": "Alerts",
+                "label": "tab_alert",
                 "path": "sample",
-                "icon": "e192",
-                "actions": [
-                  {
-                    "icon": "/images/baseline_filter_list_black_24.png",
-                    "action": "calendar:action:filter"
-                  },
-                  {
-                    "icon": "/images/baseline_date_range_black_24.png",
-                    "action": "calendar:action:selectday"
-                  }
-                ]
+                "icon": "e7f4",
+                "actions": []
+              }, {
+                "name": "Account",
+                "label": "tab_account",
+                "path": "sample",
+                "icon": "e851",
+                "actions": []
               }
             ]
           }
@@ -88,47 +82,61 @@
           "name": "Books",
           "label": "drawer_books",
           "path": "sample",
+          "icon": "e865",
           "category": "main",
-          "icon": "e865"
+          "actions": [
+            {
+              "icon": "/images/baseline_filter_list_black_24.png",
+              "name": "book:action:search"
+            }
+          ]
         },
         "Electronics": {
           "id": 502,
           "name": "Electronics",
           "label": "drawer_electronics",
           "path": "sample",
-          "category": "main",
-          "icon": "e1b1"
+          "icon": "e1b1",
+          "category": "main"
         },
         "Music": {
           "id": 503,
           "name": "Music",
           "label": "drawer_music",
           "path": "sample",
-          "category": "main",
-          "icon": "e019"
+          "icon": "e019",
+          "category": "main"
         },
         "Settings": {
-          "id": 505,
+          "id": 504,
           "name": "Settings",
           "label": "drawer_settings",
           "path": "openable",
-          "category": "openable",
-          "icon": "e8b8"
+          "icon": "e8b8",
+          "category": "openable"
         },
         "Contact": {
-          "id": 506,
+          "id": 505,
           "name": "Contact",
           "label": "drawer_contact",
           "path": "openable",
-          "category": "openable",
-          "icon": "e887"
+          "icon": "e887",
+          "category": "openable"
+        },
+        "Logout": {
+          "id": 506,
+          "name": "Logout",
+          "label": "drawer_logout",
+          "path": "onLogout",
+          "icon": "e879",
+          "category": "action"
         }
       }
     },
     "Color": {
-      "primary": "#03a9f4",
-      "primary_dark": "#007ac1",
-      "primary_light": "#67daff",
+      "primary": "#c6272d",
+      "primary_dark": "#8e0005",
+      "primary_light": "#ff5e57",
       "accent": "#82FFAD",
       "accent_dark": "#52ff83",
       "accent_light": "#daffe6",
@@ -154,7 +162,7 @@
       "Font": {
         "Icons": {
           "MaterialIcons": "MaterialIcons-Regular",
-          "Icomoon": "Icomoon-Ultimate"
+          "MaterialDesignIcons": "Material-Design-Icons"
         },
         "Roboto": {
           "Light": "Roboto-Light",

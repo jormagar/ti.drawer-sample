@@ -1,8 +1,15 @@
 <resources>
+    <string name="appname">Drawer Sample</string>
+    <!-- DRAWER ITEMS -->
     <string name="drawer_home">Inicio</string>
     <string name="drawer_books">Libros</string>
     <string name="drawer_electronics">Electrónica</string>
     <string name="drawer_music">Música</string>
     <string name="drawer_settings">Ajustes</string>
     <string name="drawer_contact">Ayuda y sugerencias</string>
+    <!-- TAB ITEMS -->
+    <string name="tab_home">Inicio</string>
+    <string name="tab_search">Buscar</string>
+    <string name="tab_alert">Notificaciones</string>
+    <string name="tab_account">Cuenta</string>
 </resources>

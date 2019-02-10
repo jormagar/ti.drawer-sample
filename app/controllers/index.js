@@ -12,28 +12,16 @@
   const DRAWER = Alloy.CFG.Drawer;
   const ITEMS = DRAWER.Items;
 
-  const ACTIONS = {};
-
-	/*ACTIONS[DRAWER.Home.name] = [
-	  [{
-		icon: '/images/baseline_filter_list_black_24.png',
-		callback: onActionClick.bind(null, 'calendar:action:filter')
-	  }, {
-		icon: '/images/baseline_date_range_black_24.png',
-		callback: onActionClick.bind(null, 'calendar:action:selectday')
-	  }], //CALENDAR
-	  [], // CITA
-	  [], // TUI
-	  []  // SERVICIOS
-	];*/
-
   const configuration = args.configuration;
 
   const Controller = {};
-  const Actions = {};
 
   let ActiveController = null;
   let ActiveTab = 0;
+
+  //Exported functions
+  $.onScrollTab = onScrollTab;
+  $.onLogout = onLogout;
 
 	/**
 	 * @method onCreateController
@@ -54,8 +42,10 @@
     Ti.API.debug('index.js_init');
 
     Object.keys(ITEMS).forEach(function (key) {
-      Controller[key] = null;
-      Actions[key] = [];
+      //Add only main controllers
+      if (ITEMS[key].category === 'main') {
+        Controller[key] = null;
+      }
     });
   }
 
@@ -86,12 +76,7 @@
       setDrawerLayout();
     }
 
-    createController({
-      controller: ITEMS.Home,
-      args: {
-        title: ITEMS.Home.label
-      }
-    });
+    createController(ITEMS.Home);
   }
 
 	/**
@@ -102,9 +87,10 @@
 
     $.toolbar = Ti.UI.createToolbar({
       barColor: Alloy.CFG.Color.primary,
-      title: L('app_title'),
-      titleTextColor: Alloy.CFG.Color.white,
-      extendBackground: true
+      title: L('appname'),
+      titleTextColor: Alloy.CFG.Color.text.primary,
+      extendBackground: true,
+      theme: 'Theme.Material'
     });
 
     $.win.activity.supportToolbar = $.toolbar;
@@ -144,17 +130,26 @@
     Ti.API.debug('index.js_createController');
     Ti.API.debug('params: ' + JSON.stringify(params));
 
-    const MAIN_CATEGORY = 'main';
+    const CATEGORY = {
+      MAIN: 'main',
+      OPENABLE: 'openable'
+    };
 
-    const name = params.controller.name;
-    const path = params.controller.path;
-    const label = params.controller.label;
-    const category = params.controller.category
+    const id = params.id;
+    const name = params.name;
+    const label = params.label;
+    const path = params.path;
+    const icon = params.icon;
+    const category = params.category;
+    const on = params.on;
+    let actions = params.actions;
+    const args = params.args;
 
-    const args = Object(params.args);
-
-    if (category === MAIN_CATEGORY) {
+    if (category === CATEGORY.MAIN) {
+      Ti.API.debug('DRAWER LABEL : ' + label);
       $.win.title = L(label);
+
+      Ti.API.debug('Window Title ' + $.win.title);
 
       if (Controller[name] === null) {
         Controller[name] = Alloy.createController(path, args);
@@ -167,6 +162,20 @@
         e: 'ready'
       });
 
+      setActions(actions, args);
+
+      if (OS_ANDROID && $.win.activity.actionBar) {
+        $.win.activity.actionBar.title = L(label);
+      } else if (OS_IOS) {
+        $.win.setTitle(L(label));
+      }
+
+      if (on) {
+        Object.keys(on).forEach(function (e) {
+          Controller[name].on(e, $[on[e]]);
+        });
+      }
+
       ActiveController && resetControllers([ActiveController]);
 
       ActiveController = name;
@@ -175,6 +184,55 @@
     } else if (OS_ANDROID) {
       Alloy.createController(path, args).getView().open();
     }
+  }
+
+  function setActions(actions, args) {
+    if (args.hasOwnProperty('controllers') &&
+      Array.isArray(args.controllers) &&
+      args.controllers[0].hasOwnProperty('actions')) {
+
+      actions = args.controllers[0].actions;
+    }
+
+    if (actions) {
+      Ti.API.debug('Actions: ' + JSON.stringify(actions));
+
+      Helper.ActionBar.showActions($, 'win', actions.map(getActions));
+    }
+
+  }
+
+  function getActions(action) {
+    return {
+      icon: action.icon,
+      type: action.type,
+      callback: onActionClick.bind(null, action.name)
+    };
+  }
+
+  /**
+   * @method onActionClick
+   * @param {string} action Event to fire
+   * @param {object} e Titanium event
+   */
+  function onActionClick(action, e) {
+    Ti.API.debug('onActionClick ' + JSON.stringify(action) + ' ' + JSON.stringify(e));
+    alert('Action clicked: ' + action);
+  }
+
+  function hasAttribute(obj, key) {
+    return key.split(".").every(function (x) {
+      if (typeof obj != "object" || obj === null || !x in obj)
+        return false;
+      obj = obj[x];
+      return true;
+    });
+  }
+
+  function getAttribute(obj, key) {
+    return key.split(".").reduce(function (o, x) {
+      return (typeof o == "undefined" || o === null) ? o : o[x];
+    }, obj);
   }
 
 	/**
@@ -186,12 +244,18 @@
 
     Ti.API.debug('e: ' + JSON.stringify(e));
 
-    createController({
-      controller: ITEMS[e.key],
-      args: {
-        title: ITEMS[e.key].label
-      }
-    });
+    //Drawer action item
+    if (ITEMS[e.key].category === 'action') {
+      $[ITEMS[e.key].path]();
+    } else {
+      //Prepare args fusion
+      ITEMS[e.key].args = Object.assign(ITEMS[e.key].args || {}, {
+        configuration: configuration
+      });
+
+      //Drawer main or openable item
+      createController(ITEMS[e.key]);
+    }
 
     closeDrawer();
   }
@@ -231,13 +295,15 @@
     $.removeListener($.win, 'open', onOpen);
 
     if (OS_ANDROID) {
+      //Set home bar actions manually on first execution
+      setActions(null, ITEMS.Home.args);
+      
       $.win.activity.actionBar.displayHomeAsUp = true;
       $.win.activity.actionBar.onHomeIconItemSelected = onHomeIconItemSelected;
     }
   }
 
 	/**
-	 * onHomeIconItemSelected
 	 * @method onHomeIconItemSelected
 	 * @param {object} e
 	 */
@@ -245,6 +311,23 @@
     Ti.API.debug('index.js_onHomeIconItemSelected');
 
     openDrawer();
+  }
+
+  /**
+   * @method  onScrollTab
+   * @param   {Object}    e Evento
+   */
+  function onScrollTab(e) {
+    Ti.API.debug('onScrollTab ' + e.index);
+    ActiveTab = e.index;
+
+    const actions = ITEMS[ActiveController].args.controllers[ActiveTab].actions;
+    
+    Helper.ActionBar.showActions($, 'win', actions.map(getActions));
+  }
+
+  function onLogout(e) {
+    alert('logout');
   }
 
 	/**

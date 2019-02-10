@@ -15,7 +15,8 @@
 
   const CATEGORY = {
     MAIN: 'main',
-    OPENABLE: 'openable'
+    OPENABLE: 'openable',
+    ACTION: 'action'
   };
 
   const DRAWER = args.drawer;
@@ -49,8 +50,8 @@
   $.open = open;
   $.close = close;
   $.dataTransform = dataTransform;
-  $.dataFilterMenu = dataFilter.bind(null, CATEGORY.MAIN);
-  $.dataFilterOpenable = dataFilter.bind(null, CATEGORY.OPENABLE);
+  $.dataFilterMenu = dataFilter.bind(null, [CATEGORY.MAIN]);
+  $.dataFilterOpenable = dataFilter.bind(null, [CATEGORY.OPENABLE, CATEGORY.ACTION]);
   $.setHeader = getSetHeader();
   $.reset = reset;
 
@@ -172,20 +173,22 @@
     Ti.API.debug('e: ' + JSON.stringify(e));
 
     const itemId = Number(e.itemId);
+    const model = Alloy.Collections.menu.get({id: itemId});
 
-    if (itemId === Menu.current) {
-      $.trigger('hide');
-      return;
+    if (model.get('category') === CATEGORY.MAIN) {
+      if (itemId === Menu.current) {
+        $.trigger('hide');
+        return;
+      }
+
+      Menu.current = itemId;
+      fetch();
     }
-
-    Menu.current = itemId;
 
     $.trigger('itemclick', {
       itemId: itemId,
-      key: Alloy.Collections.menu.get({id: itemId}).get('name')
+      key: model.get('name')
     });
-
-    fetch();
   }
 
   /**
@@ -298,8 +301,12 @@
    * @param  {object} collection Colección de menú
    * @returns {object}
    */
-  function dataFilter(category, collection) {
-    return collection.where({ category: category });
+  function dataFilter(categories, collection) {
+    let result = [];
+    categories.forEach(function(category){
+      result = result.concat(collection.where({ category: category }));
+    });
+    return result;
   }
 
   /**
@@ -315,7 +322,9 @@
     Object.keys(items).forEach(function (key) {
       models.push(Alloy.createModel('menu', {
         id: items[key].id,
-        name: L(items[key].label),
+        name: items[key].name,
+        label: L(items[key].label),
+        path: items[key].path,
         icon: String.fromCharCode('0x' + items[key].icon),
         category: items[key].category
       }));

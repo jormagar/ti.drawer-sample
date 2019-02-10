@@ -6,15 +6,11 @@
 * 	Common UI Element Styles
 */
 "Window" : {
-  title: L("app_title", "MiUPV"),
+  title: L("appname"),
   backgroundColor: Alloy.CFG.Color.white,
   orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 },
 "NavigationWindow[platform=ios]" : {
-  backgroundColor: Alloy.CFG.Color.white
-},
-"Window" : {
-  title: L("app_title"),
   backgroundColor: Alloy.CFG.Color.white
 },
 "Window[platform=ios]" : {
@@ -97,6 +93,12 @@
 ".material-icon" : {
   font: {
     fontFamily: Alloy.CFG.Text.Font.Icons.MaterialIcons,
+    fontSize: Alloy.CFG.Text.Sizes.icon
+  }
+},
+".material-design-icon" : {
+  font: {
+    fontFamily: Alloy.CFG.Text.Font.Icons.MaterialDesignIcons,
     fontSize: Alloy.CFG.Text.Sizes.icon
   }
 },

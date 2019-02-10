@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<!-- Color palette -->
-	<color name="primary_dark">#007ac1</color>
-	<color name="primary">#03a9f4</color>
-	<color name="primary_light">#67daff</color>
+	<color name="primary_dark">#8e0005</color>
+	<color name="primary">#c6272d</color>
+	<color name="primary_light">#ff5e57</color>
 	<color name="white">#FFFFFF</color>
 	<color name="white_dark">#F2F2F2</color>
 	<color name="gray">#8395a7</color>
@@ -12,15 +12,53 @@
 	<color name="black">#222f3e</color>
 	<color name="black_transparent">#8817202b</color>
 
+	<!-- Definimos custom ActionBar -->
+	<style name="Theme.Material.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+		<item name="elevation">0dp</item>
+		<item name="android:elevation">0dp</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
+
+	<!-- Dialog theme -->
+	<style name="Theme.Material.Dialog" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/primary</item>
+		<item name="colorControlNormal">@color/gray</item>
+		<item name="android:textColorPrimary">@color/black</item>
+		<item name="textColorAlertDialogListItem">@color/black</item>
+	</style>
+
+	<!-- Searchview theme -->
+	<style name="Theme.Material.SearchView" parent="@style/Widget.AppCompat.SearchView">
+		<item name="searchIcon">@drawable/baseline_search_black_24</item>
+		<item name="searchHintIcon">@drawable/baseline_search_black_24</item>
+		<item name="closeIcon">@drawable/baseline_close_black_24</item>
+	</style>
+
+	<style name="Theme.Material.Widget" parent="@style/Theme.AppCompat">
+		<item name="android:textColorHint">@android:color/black</item>
+	</style>
+
+	<style name="ActionBarTheme" parent="@style/Widget.AppCompat.Toolbar">
+		<item name="android:textColorPrimary">@color/black</item>
+		<item name="android:textColorSecondary">@color/black</item>
+		<!--<item name="colorControlNormal">?actionBarIconColor</item>
+		<item name="actionButtonStyle">@style/ActionBar.ActionButton</item>
+		<item name="selectableItemBackground">?android:selectableItemBackground</item>
+		<item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+		<item name="colorControlHighlight">@android:color/black</item>-->
+	</style>
+
 	<style name="Theme.Material" parent="@style/Theme.AppCompat.Light">
 		<!-- Status bar color -->
 		<item name="colorPrimaryDark">@color/primary_dark</item>
 		<!-- Action bar color -->
 		<item name="colorPrimary">@color/primary</item>
 		<!-- Navigation bar color -->
-		<item name="android:navigationBarColor">@color/black</item>
+		<item name="android:navigationBarColor">@android:color/black</item>
 		<!-- Text color -->
-		<item name="android:textColorPrimary">@color/white</item>
+		<item name="android:textColorPrimary">@android:color/black</item>
+		<!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+		<item name="android:textColorSecondary">@android:color/black</item>
 		<!-- Default control color -->
 		<item name="colorControlNormal">@color/primary_light</item>
 		<!-- Active control color -->
@@ -33,7 +71,16 @@
 		<item name="android:indeterminateTint">@color/primary</item>
 		<!-- Status bar theme  >= Android 8 -->
 		<item name="android:windowLightStatusBar">false</item>
+		<!-- Dialog theme -->
+		<item name="alertDialogTheme">@style/Theme.Material.Dialog</item>
+		<!-- Actionbar Theme -->
+		<item name="toolbarStyle">@style/ActionBarTheme</item>
+		<!-- SearchView Theme -->
+		<item name="searchViewStyle">@style/Theme.Material.SearchView</item>
+		<!-- Actionbar hack for search text hint color -->
+		<!--<item name="android:actionBarWidgetTheme">@style/Theme.Material.Widget</item>-->
 	</style>
+
 	<style name="Theme.Material.NoTitleBar" parent="Theme.Material">
 		<!-- Hide Action bar -->
 		<item name="android:windowNoTitle">true</item>
@@ -58,7 +105,7 @@
 		<!-- Drawer icon animation -->
 		<item name="spinBars">true</item>
 		<!-- Drawer icon color -->
-		<item name="color">@color/white</item>
+		<item name="color">@android:color/black</item>
 	</style>
 
 	<style name="Theme.Material.NoTitleBar.Drawer" parent="Theme.Material.NoTitleBar">

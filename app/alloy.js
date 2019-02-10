@@ -10,7 +10,8 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 global.Helper = {
-    Fade: require('fade')
+    Fade: require('fade'),
+    ActionBar: require('actionbar')
 };
 
 global.AvImageview = require('av.imageview');
